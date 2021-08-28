@@ -24,6 +24,9 @@
   "dependencies": {
     "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
-    "twit": "^2.2.11"
+    "get-images-from-tweet": "^1.0.0",
+    "json": "^11.0.0",
+    "twit": "^2.2.11",
+    "urllib": "^2.37.3"
   }
 }

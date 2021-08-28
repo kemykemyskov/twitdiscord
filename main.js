@@ -15,13 +15,13 @@ var T = new Twit({
 
 client.login(process.env.DISCORD_TOKEN);
 client.once('ready', () => {
-    T.get('friends/ids', { screen_name: 'kemyskov'},  function (err, friends, response) {
+    T.get('friends/ids', { screen_name: 'SFMonitorScript'},  function (err, friends, response) {
         var stream = T.stream('statuses/filter', { follow: friends.ids });
         stream.on('tweet', function (tweet) {
             var str = tweet.text;
             var str_low = str.toLowerCase();  
             var reg = /(post|publication)/g;  
-                if (reg.test(str_low)){
+              //  if (reg.test(str_low)){
                     var url = "https://twitter.com/" + tweet.user.screen_name + "/status/" + tweet.id_str;
                     T.post('statuses/update', { status: '@SneaksFamily Discord: [Sneaks](www.discord.com) 📍 🇧🇪 / 🇫🇷  '+ url }, function(err, data, response) { })
                     txt = str.replace(str.substr( str.length - 23 ),'');
@@ -51,9 +51,9 @@ client.once('ready', () => {
                   } catch (error) {
                           console.error(error);
                     }
-                }else{
+              /*  }else{
                     console.log("nope")
-                }
+                }*/
         })
     })
 })
